@@ -8,12 +8,12 @@
 
 const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-function generatKey(length, characters){
+function generatKey(length, characters) {
     key = '';
-    while(key.length < length){
+    while (key.length < length) {
         key += characters[Math.floor(Math.random() * characters.length)];
     }
     return console.log(key);
 }
 
-generatKey(16,characters);
+generatKey(16, characters);

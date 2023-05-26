@@ -4,7 +4,7 @@
 // sum(5) = 8
 // sum(20) = 28
 
-let createSum = function (){
+let createSum = function () {
     let a = 0;
     return function (x) {
         a += x
