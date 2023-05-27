@@ -21,31 +21,52 @@ calcNumberElement();
 console.log(numberIsArray);
 
 //task 2
-let equationNumbersOne = +prompt('Enter first number');
-let equationNumbersTwo = +prompt('Enter second number');
-let sign = prompt('Enter sign(+, -, *, /, %, ^)', '+');
+// let equationNumbersOne = +prompt('Enter first number');
+// let equationNumbersTwo = +prompt('Enter second number');
+// let sign = prompt('Enter sign(+, -, *, /, %, ^)', '+');
+//
+// function doMath(x, y, znak){
+//     switch (znak){
+//         case '+':
+//             x + y;
+//             break;
+//         case '-':
+//             x - y;
+//             break;
+//         case '*':
+//             x * y;
+//             break;
+//         case '/':
+//             x / y;
+//             break;
+//         case '%':
+//             x % y;
+//             break;
+//         case '^':
+//             x ^ y;
+//             break;
+//     }
+// }
+// console.log(doMath(equationNumbersOne, equationNumbersTwo, sign));
 
-function doMath(x, y, znak){
-    switch (znak){
-        case '+':
-            x + y;
-            break;
-        case '-':
-            x - y;
-            break;
-        case '*':
-            x * y;
-            break;
-        case '/':
-            x / y;
-            break;
-        case '%':
-            x % y;
-            break;
-        case '^':
-            x ^ y;
-            break;
-    }
+
+let str = prompt('Введите любой текст');
+let stR = prompt('Какие символы хотите удалить?');
+
+function removeLetter(x,y) {
+    for(let i = 0; i < str.length; i++){
+        if (x[i] === y[i]){
+            x.replace(y, '');
+        } else {
+            x[i] += x[i];
+        }
+    return console.log(str);
 }
-console.log(doMath(equationNumbersOne, equationNumbersTwo, sign));
+     // x.replace(`${y}`, '');
+     // return console.log(str);
+}
+
+removeLetter(str, stR);
+
+
 
