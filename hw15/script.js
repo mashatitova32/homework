@@ -23,10 +23,18 @@ sports = [
 ];
 
 summer_sports = sports.slice(5);
-winter_sports = sports.slice(0,5);
-fruits = summer_sports.splice(2,2).concat(winter_sports.splice(2,1));
+winter_sports = sports.slice(0, 5);
+fruits = summer_sports.splice(2, 2).concat(winter_sports.splice(2, 1));
 
-console.log(summer_sports);
-console.log(winter_sports);
-console.log(fruits);
+function consolePictures(name, array) {
+    console.log(`***${name}***`);
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${array[i][0]} : ${array[i][1]}`);
+    }
+}
+
+consolePictures('Summer sport', summer_sports);
+consolePictures('Winter sport', winter_sports);
+consolePictures('Fruits', fruits);
+
 

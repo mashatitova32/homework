@@ -1,8 +1,8 @@
-function deepClone(array) {
-    const newArray = [];
-//...
-    return newArray;
-}
+// function deepClone(array) {
+//     const newArray = [];
+// //...
+//     return newArray;
+// }
 //Array can have a lot of levels, for example:
 
 const array = [
@@ -14,3 +14,12 @@ const array = [
         ['name', 'age']
     ],
 ];
+
+function deepClone(){
+    for(let i = 0; i < array.length; i++){
+        if(Array.isArray(array[i])){
+            deepClone();
+        }
+    }
+}
+
