@@ -5,10 +5,10 @@
 // sum(20) = 28
 
 let createSum = function () {
-    let num = 0;
-    return function (x) {
-        num += x
-        return console.log(num);
+    let sum = 0;
+    return function (number) {
+        sum += number;
+        return console.log(sum);
     }
 }
 
