@@ -15,11 +15,19 @@ const array = [
     ],
 ];
 
-function deepClone(){
-    for(let i = 0; i < array.length; i++){
-        if(Array.isArray(array[i])){
-            deepClone();
+
+
+function deepClone(arr){
+    const newArray = [];
+    for(let i = 0; i < arr.length; i++){
+        if(Array.isArray(arr[i])){
+            const tempClone = deepClone(arr[i]);
+            newArray.push(tempClone);
+        } else {
+            newArray.push(arr[i]);
         }
     }
+    return newArray;
 }
+console.log(deepClone(array));
 
