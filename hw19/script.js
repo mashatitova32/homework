@@ -27,15 +27,15 @@ let sign = prompt('Enter sign');
 
 function doMath(x, znak, y) {
     if (~znak.search(/[^+\-*/%^]/) || znak.length !== 1) return 'Ошибка';
-    return eval(x + znak.replace('^', '**') + y)
+    return eval(x + znak.replace('^', '**') + y);
 }
 
 console.log(doMath(firstNumber, sign, secondNumber));
 
 
 //task 3
-let outerArray = prompt("outerArray = ")
-let interiorArray = prompt("interiorArray = ")
+let outerArray = prompt('outerArray = ');
+let interiorArray = prompt('interiorArray = ');
 
 let result = [];
 result.length = outerArray;
@@ -45,9 +45,11 @@ for (let i = 0; i < outerArray; i++) {
     result[i].length = interiorArray;
 }
 
-for (let i = 0; i < result.length; i++)
-    for (let j = 0; j < result[i].length; j++)
-        result[i][j] = 1
+for (let i = 0; i < result.length; i++){
+    for (let j = 0; j < result[i].length; j++){
+        result[i][j] = 1;
+    }
+}
 
 console.log(result);
 
@@ -66,6 +68,3 @@ function removeChars(str, lettersToRemove) {
 }
 
 console.log(removeChars(str, removeLetter));
-
-
-
