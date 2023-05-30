@@ -15,12 +15,10 @@ const array = [
     ],
 ];
 
-
-
-function deepClone(arr){
+function deepClone(arr) {
     const newArray = [];
-    for(let i = 0; i < arr.length; i++){
-        if(Array.isArray(arr[i])){
+    for (let i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
             const tempClone = deepClone(arr[i]);
             newArray.push(tempClone);
         } else {
@@ -29,5 +27,6 @@ function deepClone(arr){
     }
     return newArray;
 }
+
 console.log(deepClone(array));
 
