@@ -31,7 +31,7 @@ function consolePictures(name, array) {
     for (let i = 0; i < array.length; i++) {
         console.log(`${array[i][0]} : ${array[i][1]}`);
     }
-    console.log('  ')
+    console.log('  ');
 }
 
 consolePictures('Summer sport', summer_sports);

@@ -6,67 +6,66 @@
 //4  Створити функцію, яка прибирає з рядка всі символи, які ми передали другим аргументом. 'func(" hello world", ['l', 'd'])' поверне нам "heo wor". Вихідний рядок та символи для видалення задає користувач.
 
 //task 1
-let array = ['apple', 13, 28, 'water', 3];
+let arrayValues = ['apple', 13, 28, 'water', 3];
 let numberIsArray = 0;
 
-
-function calcNumberElement(){
-    for(let i = 0; i < array.length; i++){
-        if(Number(array[i])){
-            numberIsArray += array[i];
+function calcNumberElement() {
+    for (let i = 0; i < arrayValues.length; i++) {
+        if (Number(arrayValues[i])) {
+            numberIsArray += arrayValues[i];
         }
     }
 }
+
 calcNumberElement();
 console.log(numberIsArray);
 
 //task 2
-// let equationNumbersOne = +prompt('Enter first number');
-// let equationNumbersTwo = +prompt('Enter second number');
-// let sign = prompt('Enter sign(+, -, *, /, %, ^)', '+');
-//
-// function doMath(x, y, znak){
-//     switch (znak){
-//         case '+':
-//             x + y;
-//             break;
-//         case '-':
-//             x - y;
-//             break;
-//         case '*':
-//             x * y;
-//             break;
-//         case '/':
-//             x / y;
-//             break;
-//         case '%':
-//             x % y;
-//             break;
-//         case '^':
-//             x ^ y;
-//             break;
-//     }
-// }
-// console.log(doMath(equationNumbersOne, equationNumbersTwo, sign));
+let firstNumber = prompt('Enter first number');
+let secondNumber = prompt('Enter second number');
+let sign = prompt('Enter sign');
+
+function doMath(x, znak, y) {
+    if (~znak.search(/[^+\-*/%^]/) || znak.length !== 1) return 'Ошибка';
+    return eval(x + znak.replace('^', '**') + y)
+}
+
+console.log(doMath(firstNumber, sign, secondNumber));
 
 
-let str = prompt('Введите любой текст');
-let stR = prompt('Какие символы хотите удалить?');
+//task 3
+let outerArray = prompt("outerArray = ")
+let interiorArray = prompt("interiorArray = ")
 
-function removeLetter(x,y) {
-    for(let i = 0; i < str.length; i++){
-        if (x[i] === y[i]){
-            x.replace(y, '');
-        } else {
-            x[i] += x[i];
+let result = [];
+result.length = outerArray;
+
+for (let i = 0; i < outerArray; i++) {
+    result[i] = [];
+    result[i].length = interiorArray;
+}
+
+for (let i = 0; i < result.length; i++)
+    for (let j = 0; j < result[i].length; j++)
+        result[i][j] = 1
+
+console.log(result);
+
+//task 4
+let str = prompt('Enter string');
+let removeLetter = prompt('Enter letter');
+
+function removeChars(str, lettersToRemove) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        if (lettersToRemove.indexOf(str[i]) === -1) {
+            result += str[i];
         }
-    return console.log(str);
-}
-     // x.replace(`${y}`, '');
-     // return console.log(str);
+    }
+    return result;
 }
 
-removeLetter(str, stR);
+console.log(removeChars(str, removeLetter));
 
 
 
