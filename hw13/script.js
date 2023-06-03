@@ -15,7 +15,7 @@ let array = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,
 let sum = 0;
 let amount = 0;
 
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
     if(array[i] > 0){
         sum += array[i];
         amount++;
@@ -26,7 +26,7 @@ console.log(sum, amount);
 
 //task 2
 
-for (i = 0; i < array.length; i++) {
+for (let i = 0; i < array.length; i++) {
     if( array[0] > array[i]){
         array[0] = array[i];
     }
@@ -34,7 +34,7 @@ for (i = 0; i < array.length; i++) {
 console.log(array[0], );
 
 //task 3
-for (i = 0; i < array.length; i++) {
+for (let i = 0; i < array.length; i++) {
     if( array[0] < array[i]){
         array[0] = array[i];
     }
@@ -44,7 +44,7 @@ console.log(array[0] );
 //task 4
 let amountNegative = 0;
 
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
     if(array[i] < 0){
         amountNegative++;
     }
@@ -55,7 +55,7 @@ console.log(amountNegative);
 let unpairedPositive = 0;
 let sumUnpairedPositive = 0;
 
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
     if(array[i] > 0 && i % 3 === 0){
         unpairedPositive++;
         sumUnpairedPositive += array[i];
@@ -69,7 +69,7 @@ console.log(unpairedPositive);
 let pairedPositive = 0;
 let sumPairedPositive = 0;
 
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
     if( array[i] > 0 && i % 2 === 0){
         pairedPositive++;
         sumPairedPositive += array[i];
@@ -87,7 +87,7 @@ console.log(sumUnpairedPositive);
 //task 9
 let multPositive = 1;
 
-for (i = 0; i < array.length; i++){
+for (let i = 0; i < array.length; i++){
     if(array[i] > 0){
         multPositive *= array[i];
         console.log(array[i]);
@@ -99,7 +99,7 @@ console.log(multPositive);
 let max = [0];
 let maxi = 0;
 
-for (i = 0; i < array.length; i++) {
+for (let i = 0; i < array.length; i++) {
     if (array[i] > max) {
         max = array[i];
         array[maxi] = 0;

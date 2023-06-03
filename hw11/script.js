@@ -4,7 +4,7 @@ arrLength = parseInt(prompt('Enter array length'));
 let arr = [];
 console.log('Emply array', arr);
 
-for(i = 0; i < arrLength; i++){
+for(let i = 0; i < arrLength; i++){
     elementArr = prompt(`Enter #${i + 1} element of array`);
     arr.push(elementArr);
 }

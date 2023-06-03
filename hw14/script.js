@@ -36,7 +36,7 @@ console.log(rainbow);
 
 let rainbowColor = [];
 
-for (i = 0; i < colors.length; i++) {
+for (let i = 0; i < colors.length; i++) {
     rainbowColor.push(`<div class="wrapp">
         <div class="circle ${colors[i]}"></div>
         <p>${rainbow[i]}</p>
