@@ -1,7 +1,7 @@
-arrLength = 0;
+let arrLength = 0;
 arrLength = parseInt(prompt('Enter array length'));
 
-arr = [];
+let arr = [];
 console.log('Emply array', arr);
 
 for(i = 0; i < arrLength; i++){

@@ -45,25 +45,25 @@
 //    <p>Выбранная категория: <b>овощи</b></p>
 //    <p>Окончательная сумма: <b>48 грн</b></p>
 // </div>
-vegetablesList = ['cabbage', 'avocado', 'tomato'];
-fruitsList = ['grapes', 'raspberry', 'coconut'];
-vegetablesPriceList = [8, 30, 10];
-fruitsPriceList = [20, 25, 50];
+let vegetablesList = ['cabbage', 'avocado', 'tomato'];
+let fruitsList = ['grapes', 'raspberry', 'coconut'];
+let vegetablesPriceList = [8, 30, 10];
+let fruitsPriceList = [20, 25, 50];
 
 do {
     season = prompt(`Winter or summer period?`, 'winter').trim().toLowerCase();
-} while(!(season === 'winter' || season === 'summer'));
+} while (!(season === 'winter' || season === 'summer'));
 
 console.log(season);
 
 if (season === 'winter') {
     coefficient = 2;
-} else if (season === 'summer'){
+} else if (season === 'summer') {
     coefficient = 0.8;
 }
 
 do {
-    category = prompt('Choose category in which you want to buy products: vegetables or fruits','fruits').trim().toLowerCase();
+    category = prompt('Choose category in which you want to buy products: vegetables or fruits', 'fruits').trim().toLowerCase();
 } while (!(category === 'vegetables' || category === 'fruits'));
 
 
@@ -73,14 +73,14 @@ switch (category) {
             vegetables = prompt(`Choose products from category vegetables: cabbage, avocado or tomato`, 'tomato').trim().toLowerCase();
             vegetableKey = vegetablesList.indexOf(vegetables)
             productPrice = vegetablesPriceList[vegetableKey];
-        } while(!(vegetables === 'cabbage' || vegetables === 'avocado' || vegetables === 'tomato'))
+        } while (!(vegetables === 'cabbage' || vegetables === 'avocado' || vegetables === 'tomato'));
         console.log(vegetables);
         break;
     case 'fruits':
         do {
             fruits = prompt('Choose product from category fruits: grapes or raspberry or coconut.', 'coconut').trim().toLowerCase();
             productPrice = fruitsPriceList[fruitsList.indexOf(fruits)];
-        } while(!(fruits === 'grapes' || fruits === 'raspberry' || fruits === 'coconut'))
+        } while (!(fruits === 'grapes' || fruits === 'raspberry' || fruits === 'coconut'));
         console.log(fruits);
         break;
 }
@@ -92,7 +92,7 @@ do {
 
 console.log(count);
 
-finalPrice = productPrice * coefficient * count;
+let finalPrice = productPrice * coefficient * count;
 console.log(finalPrice);
 
 if (category === 'vegetables') {
@@ -105,7 +105,7 @@ if (category === 'vegetables') {
             <p>Selected category: <b>vegetables</b></p>
             <p>Final sum: <b>${finalPrice} UAH</b></p>
     </div>`)
-} else if(category === 'fruits'){
+} else if (category === 'fruits') {
     document.write(
         `<div className="product" align="center">
         <img src="img/fruits/${fruits}.svg" alt="fruits" width="100" height="100">
