@@ -16,4 +16,33 @@ const tuesday = [
     ['A whole lot of nothing',240]
 ];
 
+let concatDay = monday.concat(tuesday)
+    .map(function (item) {
+        item[1] = item[1] / 60;
+        return item;
+    })
+    .filter(function (item) {
+        return item[1] > 2;
+    })
+    .map(function (item) {
+        item.push(item[1] * amount);
+        return item;
+    })
+    .map(function (item) {
+        return `<tr>
+                <td>Task name: ${item[0]}</td>
+                <td>Taks duration: ${item[1]} hours</td>
+                <td>Task amount: $${item[2]}</td>
+            </tr>`;
+    })
+    .join('');
+
+document.write(`
+<table> ${concatDay} </table>
+`);
+
+
+
+
+
 
