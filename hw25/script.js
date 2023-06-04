@@ -15,11 +15,17 @@ let obj = {
     }
 }
 
-newObj = {
-    x: 20,
-    y: 20,
-    z: 30,
-    k: 23,
-    p: 13
+function assing(object) {
+    const newObj = {};
+    for (let key in object) {
+        if (typeof object[key] === 'object') {
+            Object.assign(newObj, assing(object[key]));
+        } else {
+            newObj[key] = object[key];
+        }
+    }
+    return newObj;
 }
+
+console.log(assing(obj));
 
