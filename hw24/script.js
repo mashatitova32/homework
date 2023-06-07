@@ -57,7 +57,20 @@ let users = [
     }
 ]
 
+let phoneNumbers = [];
+let balanceSum = 0;
 
+for (let i = 0; i < users.length; i++) {
+    let balance = parseInt(users[i].balance.replace(/[^0-9.-]+/g, ''));
+
+    if (balance > 2000) {
+        phoneNumbers.push(users[i].phone);
+    }
+    balanceSum += balance;
+}
+
+console.log(phoneNumbers);
+console.log(balanceSum);
 
 
 
