@@ -27,11 +27,34 @@ for(let i = 1; i <= 100; i++){
 }
 
 //task 4
-let integerNumber = 10;
+let primeNumber = prompt('enter number');
+let isPrime = true;
 
-for(let i = 0; i <= integerNumber; i++){
-
+if (primeNumber < 2) {
+    isPrime = false;
+} else {
+    for (let i = 2; i < primeNumber; i++) {
+        if (primeNumber % i === 0) {
+            isPrime = false;
+            break;
+        }
+    }
 }
+
+if (isPrime) {
+    console.log(primeNumber + ' - простое число');
+} else {
+    console.log(primeNumber + ' - составное число');
+}
+
+//task 5
+let number = parseInt(prompt("Введите что-бы проверить можно ли получить число из 3-ки в степени: "));
+
+while (number % 3 === 0) {
+    number /= 3;
+}
+console.log((number === 1)? "Число можно получить " : "Число нельзя получить");
+
 
 
 
