@@ -58,18 +58,23 @@ let users = [
 ]
 
 let phoneNumbers = [];
-let balanceSum = 0;
 
-for (let i = 0; i < users.length; i++) {
-    let balance = parseInt(users[i].balance.replace(/[^0-9.-]+/g, ''));
 
-    if (balance > 2000) {
-        phoneNumbers.push(users[i].phone);
-    }
-    balanceSum += balance;
-}
+let filteredUsers = users.filter(function (user) {
+    return parseFloat(user.balance.replace(/[^0-9.-]+/g, '')) > 2000;
+});
+
+phoneNumbers = filteredUsers.map(function (user) {
+    return user.phone;
+});
 
 console.log(phoneNumbers);
+
+
+let balanceSum = users.reduce(function (sum, user) {
+    let balance = parseInt(user.balance.replace(/[^0-9.-]+/g, ''));
+    return sum + balance;
+}, 0);
 console.log(balanceSum);
 
 
