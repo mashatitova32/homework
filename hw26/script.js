@@ -41,12 +41,13 @@ Array.prototype.heroesRender = function(folderName) {
     marvelHeroes.heroesRender('marvel');
 }
 
-// Create table header
-    function tableHeroes() {
-    for (let key in array)
-        return document.write(`
+    function tableHeroes(folder) {
+            folder.map(function (item){
+
+            })
+            return document.write(`
                 <tr>
-                    <td>key[]</td>
+                    <td>${key[key]}</td>
                 <td>
                     <img src="images/marvel/thor.svg"></td>
                 </tr>`)
@@ -54,4 +55,8 @@ Array.prototype.heroesRender = function(folderName) {
     tableHeroes();
 
 
-//Note: This solution modifies the Array prototype, which is generally not recommended in production code. It's better to create a separate utility function for this purpose. However, for the sake of simplicity in this example, I've used this approach.
+
+
+
+
+
