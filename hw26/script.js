@@ -36,23 +36,39 @@ let dcHeroes = [
     }
 ];
 
-Array.prototype.heroesRender = function(folderName) {
-    dcHeroes.heroesRender('dc');
-    marvelHeroes.heroesRender('marvel');
-}
+// Array.prototype.heroesRender = function(folderName) {
+//     function tableHeroes(folderName) {
+//         for (let i = 0; i < this.length; i++) {
+//             const hero = this[i];
+//             if (hero.folder === folderName) {
+//                 return `<tr>
+//                         <td>${hero.name}</td>
+//                         <td>
+//                             <img src="images/${folderName}/${hero.name}.svg">
+//                          </td>
+//                     </tr>`
+//             }
+//         }
+//     }
+// }
+    Array.prototype.heroesRender = function(folderName) {
+        let heroArray = this;
+        let table = 'NameIcon';
+        heroArray.forEach(function(hero) {
+            let heroName = hero.name;
+            let heroIconName = heroName.split(' ').join('').toLowerCase() + '.svg';
+            table += '' + heroName + '';
+        });
+        table += '';
+        return table;
+    };
 
-    function tableHeroes(folder) {
-            folder.map(function (item){
 
-            })
-            return document.write(`
-                <tr>
-                    <td>${key[key]}</td>
-                <td>
-                    <img src="images/marvel/thor.svg"></td>
-                </tr>`)
-    }
-    tableHeroes();
+
+
+document.write(`${marvelHeroes.heroesRender('marvel')}`);
+dcHeroes.heroesRender('dc');
+
 
 
 
