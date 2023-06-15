@@ -51,14 +51,12 @@ Array.prototype.heroesRender = function (folderName) {
                     <td>${hero.name}</td>
                     <td><img src="${folderPath}${hero.name.toLowerCase().replaceAll(' ', '')}.svg"></td> 
                   </tr>`;
-        });
-        table +=`</tbody> 
+    });
+    table += `</tbody> 
                  </table>`;
 
-        return document.write(table);
-    };
-
-
+    return document.write(table);
+};
 
 
 marvelHeroes.heroesRender('marvel');
