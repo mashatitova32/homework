@@ -36,37 +36,32 @@ let dcHeroes = [
     }
 ];
 
-// Array.prototype.heroesRender = function(folderName) {
-//     function tableHeroes(folderName) {
-//         for (let i = 0; i < this.length; i++) {
-//             const hero = this[i];
-//             if (hero.folder === folderName) {
-//                 return `<tr>
-//                         <td>${hero.name}</td>
-//                         <td>
-//                             <img src="images/${folderName}/${hero.name}.svg">
-//                          </td>
-//                     </tr>`
-//             }
-//         }
-//     }
-// }
-    Array.prototype.heroesRender = function(folderName) {
-        let heroArray = this;
-        let table = 'NameIcon';
-        heroArray.forEach(function(hero) {
-            let heroName = hero.name;
-            let heroIconName = heroName.split(' ').join('').toLowerCase() + '.svg';
-            table += '' + heroName + '';
+Array.prototype.heroesRender = function (folderName) {
+    let table = `<table>
+                   <thead>
+                     <tr>  
+                       <th>Name</th>    
+                       <th>Icon</th> 
+                     </tr>
+                   </thead> 
+                   <tbody>`;
+    let folderPath = `images/${folderName}/`;
+    this.forEach(hero => {
+        table += `<tr> 
+                    <td>${hero.name}</td>
+                    <td><img src="${folderPath}${hero.name.toLowerCase().replaceAll(' ', '')}.svg"></td> 
+                  </tr>`;
         });
-        table += '';
-        return table;
+        table +=`</tbody> 
+                 </table>`;
+
+        return document.write(table);
     };
 
 
 
 
-document.write(`${marvelHeroes.heroesRender('marvel')}`);
+marvelHeroes.heroesRender('marvel');
 dcHeroes.heroesRender('dc');
 
 

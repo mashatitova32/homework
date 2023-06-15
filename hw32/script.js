@@ -7,3 +7,37 @@
 // При введенні znak потрібно перевірити коректність введення на можливі математичні дії.
 //p = new SuperMath();
 // p.check(obj); // --> no p.input() -> 3 prompt -> рахує
+let kitchenProducts = [
+	{
+		type: 'grater',
+		price: 10
+	},
+	{
+		type: 'pastry-bag',
+		price: 25
+	},
+	{
+		type: 'scale',
+		price: 5
+	},
+	{
+		type: 'whisk',
+		price: 15
+	}
+];
+
+const cosmeticsProducts = [
+	{
+		type: 'blush',
+		price: 10
+	},
+	{
+		type: 'perfume',
+		price: 25
+	}
+];
+
+
+kitchenProducts.renderProducts("kitchen");
+cosmeticsProducts.renderProducts("cosmetics");
+deviceProducts.renderProducts("devices");
