@@ -7,37 +7,39 @@
 // При введенні znak потрібно перевірити коректність введення на можливі математичні дії.
 //p = new SuperMath();
 // p.check(obj); // --> no p.input() -> 3 prompt -> рахує
-let kitchenProducts = [
-	{
-		type: 'grater',
-		price: 10
-	},
-	{
-		type: 'pastry-bag',
-		price: 25
-	},
-	{
-		type: 'scale',
-		price: 5
-	},
-	{
-		type: 'whisk',
-		price: 15
+
+class SuperMath {
+	check(obj) {
+		const {X, Y, znak} = obj;
+		if (['+', '-', '*', '/', '%'].includes(znak)) {
+			const configuration = prompt(`Do you want to perform ${X} ${znak} ${Y}? Type 'yes' to confirm.`);
+			if (configuration === 'yes') {
+				switch (znak) {
+					case '+':
+						return X + Y;
+					case '-':
+						return X - Y;
+					case '*':
+						return X * Y;
+					case '/':
+						return X / Y;
+					case '%':
+						return X % Y;
+				}
+			} else {
+				return this.input();
+			}
+		} else{
+			alert('Invalid operator!');
+			return this.input();
+		}
 	}
-];
-
-const cosmeticsProducts = [
-	{
-		type: 'blush',
-		price: 10
-	},
-	{
-		type: 'perfume',
-		price: 25
+	input(){
+		const X = +prompt('Enter a number for X:');
+		const Y = +prompt('Enter a number for X:');
+		const znak = prompt('Enter for operation (+, -, *, /, %):');
+		return this.check({X: Number(X), Y: Number(Y), znak});
 	}
-];
-
-
-kitchenProducts.renderProducts("kitchen");
-cosmeticsProducts.renderProducts("cosmetics");
-deviceProducts.renderProducts("devices");
+}
+const result = new SuperMath();
+console.log(result.input());
