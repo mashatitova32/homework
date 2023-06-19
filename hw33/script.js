@@ -30,30 +30,31 @@
 // екземпляр класу Будинок;
 // додадити екземпляри класу Квартира до екземплярів класу Будинок.
 
-class Human{
-    constructor(name, gender){
+class Human {
+    constructor(name, gender) {
         this.name = name;
         this.gender = gender;
     }
 }
 
-class Apartament{
+class Apartament {
     constructor() {
         this.residents = [];
     }
-    addResident(human){
+
+    addResident(human) {
         this.residents.push(human);
     }
 }
 
-class House{
+class House {
     constructor(maxApartaments) {
         this.apartaments = [];
         this.maxApartaments = maxApartaments;
     }
 
-    addApartaments(){
-        if(this.apartaments.length < this.maxApartaments){
+    addApartaments() {
+        if (this.apartaments.length < this.maxApartaments) {
             this.apartaments.push(this.apartaments)
         } else {
             console.log('Cannot add apartment - maximum number of apartments reached.')

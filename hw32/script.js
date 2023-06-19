@@ -29,17 +29,19 @@ class SuperMath {
 			} else {
 				return this.input();
 			}
-		} else{
+		} else {
 			alert('Invalid operator!');
 			return this.input();
 		}
 	}
-	input(){
+
+	input() {
 		const X = +prompt('Enter a number for X:');
 		const Y = +prompt('Enter a number for X:');
 		const znak = prompt('Enter for operation (+, -, *, /, %):');
 		return this.check({X: Number(X), Y: Number(Y), znak});
 	}
 }
+
 const result = new SuperMath();
 console.log(result.input());

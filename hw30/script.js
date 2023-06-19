@@ -14,11 +14,11 @@ function Student(name, surname, birthYear) {
     this.grades = [];
     this.attendance = new Array(25).fill(null);
 
-    this.getAge = function() {
+    this.getAge = function () {
         return new Date().getFullYear() - this.birthYear;
     };
 
-    this.getAverageGrade = function() {
+    this.getAverageGrade = function () {
         if (this.grades.length === 0) {
             return null;
         }
@@ -26,7 +26,7 @@ function Student(name, surname, birthYear) {
         return sum / this.grades.length;
     };
 
-    this.present = function() {
+    this.present = function () {
         const index = this.attendance.indexOf(null);
         if (index !== -1) {
             this.attendance[index] = true;
@@ -35,7 +35,7 @@ function Student(name, surname, birthYear) {
         return false;
     };
 
-    this.absent = function() {
+    this.absent = function () {
         const index = this.attendance.indexOf(null);
         if (index !== -1) {
             this.attendance[index] = false;
@@ -44,7 +44,7 @@ function Student(name, surname, birthYear) {
         return false;
     };
 
-    this.summary = function() {
+    this.summary = function () {
         const averageGrade = this.getAverageGrade();
         const attendanceCount = this.attendance.filter(item => item !== null).length;
         const attendanceRate = attendanceCount / this.attendance.length;

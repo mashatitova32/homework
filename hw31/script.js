@@ -41,25 +41,25 @@
 // // А скільки тепер коштує?
 // console.log("Price with sauce: “ + hamburger.calculatePrice());
 
-class Hamburger{
+class Hamburger {
     constructor(size, stuffing) {
         this.size = size;
         this.stuffing = stuffing;
         this.toppings = [];
     }
 
-    addTopping(topping){
+    addTopping(topping) {
         this.toppings.push(topping);
     }
 
-    calculatePrice(){
+    calculatePrice() {
         const sizePrice = this.size.price;
         const stuffingPrice = this.stuffing.price;
         const toppingPrice = this.toppings.reduce((total, topping) => total + topping.price, 0);
         return sizePrice + stuffingPrice + toppingPrice;
     }
 
-    calculateCalories(){
+    calculateCalories() {
         const sizeCalories = this.size.calories;
         const stuffingCalories = this.stuffing.calories;
         const toppingCalories = this.toppings.reduce((total, topping) => total + topping.calories, 0);
