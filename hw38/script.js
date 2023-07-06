@@ -4,7 +4,7 @@ function checkProtocol() {
     let link = document.getElementById('link').value;
     let protocol = 'http://';
 
-    if(!/^https?:\/\//i.test(link)){
+    if (!/^https?:\/\//i.test(link)) {
         link = protocol + link;
     }
     window.location.href = link;

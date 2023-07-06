@@ -4,14 +4,10 @@
 const textField = document.querySelector('#text-field');
 const div = document.querySelector('#div-element');
 
-// Додаємо обробник події на фокусування поля
-textField.addEventListener('focus', function() {
-    // Встановлюємо видимість <div> на видимий
+textField.addEventListener('focus', function () {
     div.style.display = 'block';
 });
 
-// Додаємо обробник події на втрату фокусу поля
-textField.addEventListener('blur', function() {
-    // Встановлюємо видимість <div> на прихований
+textField.addEventListener('blur', function () {
     div.style.display = 'none';
 });

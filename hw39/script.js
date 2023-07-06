@@ -5,14 +5,14 @@
 // При натисканні на смайл - під ним змінюється значення лічильника.
 // Реалізувати таким чином, щоб додавання нових варіантів відповіді не вело до додавання нових функцій.
 
-let options = ['😄','😊','😐','🙁','😔'];
-let counters = [0, 0, 0, 0, 0];
+const options = ['😄', '😊', '😐', '🙁', '😔'];
+const counters = [0, 0, 0, 0, 0];
 
-function updateResult () {
+function updateResult() {
     let votingResult = document.getElementById('voting-result');
     votingResult.innerHTML = '';
 
-    for(let i = 0; i < options.length; i++){
+    for (let i = 0; i < options.length; i++) {
         let option = options[i];
         let count = counters[i];
 
@@ -25,13 +25,13 @@ function updateResult () {
         optionElement.appendChild(countElement);
         votingResult.appendChild(optionElement);
 
-        optionElement.addEventListener('click', function (){
+        optionElement.addEventListener('click', function () {
             vote(i);
         })
     }
 }
 
-function vote(index){
+function vote(index) {
     counters[index]++;
     updateResult();
 }
