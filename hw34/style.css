@@ -1,0 +1,10 @@
+#div-element{
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    margin-left: 5px;
+}
+#text-field{
+    max-width: 300px;
+
+}
