@@ -31,24 +31,25 @@
 //
 // Вы можете изменить предоставленную HTML-разметку и классы CSS для каждого блока по своему усмотрению. Основная цель — визуально отобразить его так, как показано на изображении.
 
+
 const roles = {
-    admin: "https://www.flaticon.com/svg/static/icons/svg/1424/1424453.svg",
-    student: "https://www.flaticon.com/svg/static/icons/svg/1424/1424424.svg",
-    lector: "https://www.flaticon.com/svg/static/icons/svg/1424/1424450.svg"
+    admin: "../images/admin.png",
+    student: "../images/student.png",
+    lector: "../images/lector.png"
 };
 
 const gradation = {
     20: "satisfactory",
     55: "good",
     85: "very-good",
-    100: "excellent"
+    100: "excellent",
 };
 
-const users = [
+let users = [
     {
         name: "Jack Smith",
         age: 23,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922522.svg",
+        img: "../images/user.png",
         role: "student",
         courses: [
             {
@@ -64,13 +65,13 @@ const users = [
     {
         name: "Amal Smith",
         age: 20,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922656.svg",
+        img: "../images/user.png",
         role: "student"
     },
     {
         name: "Noah Smith",
         age: 43,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922616.svg",
+        img: "../images/user.png",
         role: "student",
         courses: [
             {
@@ -82,7 +83,7 @@ const users = [
     {
         name: "Charlie Smith",
         age: 18,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922688.svg",
+        img: "../images/user.png",
         role: "student",
         courses: [
             {
@@ -97,7 +98,7 @@ const users = [
     {
         name: "Emily Smith",
         age: 30,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922565.svg",
+        img: "../images/user.png",
         role: "admin",
         courses: [
             {
@@ -119,7 +120,7 @@ const users = [
     {
         name: "Leo Smith",
         age: 253,
-        img: "https://www.flaticon.com/svg/static/icons/svg/2922/2922719.svg",
+        img: "../images/user.png",
         role: "lector",
         courses: [
             {
@@ -134,122 +135,149 @@ const users = [
             }
         ]
     }
-]
+];
 
 class User {
-    constructor(name, age, img, role) {
+    constructor(name, age, img, role, courses) {
         this.name = name;
         this.age = age;
         this.img = img;
         this.role = role;
+        this.courses = courses;
+    }
+
+    getGrade(grade) {
+        if (grade >= 20) return gradation[20];
+        if (grade >= 55) return gradation[55];
+        if (grade >= 85) return gradation[85];
+        if (grade === 100) return gradation[100];
     }
 
     render() {
-        const userBlock = document.createElement('div');
-        userBlock.classList.add('user');
+        document.write(
+            `<div class="users">
+		<div class="user">
+			<div class="user__info">
+				<div class="user__info--data">
+					<img src="${this.img}" alt="${this.name}" height="50">
+					<div class="user__naming">
+						<p>Name: <b>${this.name}</b></p>
+						<p>Age: <b>${this.age}</b></p>
+					</div>
+				</div>
+				<div class="user__info--role ${this.role}">
+					<img src="${roles[this.role]}" alt="${this.role}" height="25">
+					<p>${this.role}</p>
+				</div>
+			</div>
+			${this.renderCourses()}
+		</div>
+	</div>`);
+    }
 
-        const img = document.createElement('img');
-        img.src = this.img;
-        userBlock.appendChild(img);
+    renderCourses() {
+        let htmlString = `<div class="user__courses">`;
 
-        const name = document.createElement('p');
-        name.textContent = `Name: ${this.name}`;
-        userBlock.appendChild(name);
+        this.courses?.forEach(course => {
+            let mark = course.mark;
 
-        const age = document.createElement('p');
-        age.textContent = `Age: ${this.age}`;
-        userBlock.appendChild(age);
+            htmlString += `
+			<p class="user__courses--course ${this.role}">
+				${course.title} <span class="${this.getGrade(mark)}">${this.getGrade(mark)}</span>
+            </p>`;
+        });
 
-        const role = document.createElement('p');
-        role.textContent = `Role: ${this.role}`;
-        userBlock.appendChild(role);
-
-        return userBlock;
+        htmlString += `</div>`;
+        return htmlString;
     }
 }
 
 class Student extends User {
     constructor(name, age, img, role, courses) {
-        super(name, age, img, role);
-        this.courses = courses;
-    }
-
-    render() {
-        const studentBlock = super.render();
-
-        if (this.courses) {
-            const coursesList = document.createElement('ul');
-            coursesList.classList.add('courses');
-
-            for (const course of this.courses) {
-                const courseItem = document.createElement('li');
-                courseItem.textContent = `${course.title}: ${course.mark}`;
-                coursesList.appendChild(courseItem);
-            }
-
-            studentBlock.appendChild(coursesList);
-        }
-
-        return studentBlock;
+        super(name, age, img, role, courses);
     }
 }
 
 class Lector extends User {
     constructor(name, age, img, role, courses) {
-        super(name, age, img, role);
-        this.courses = courses;
+        super(name, age, img, role, courses);
     }
 
-    renderCourses() {
-        const coursesList = document.createElement('ul');
-        coursesList.classList.add('courses');
+    renderCourses(){
+        let htmlString = `<div class="user__courses admin--info">`;
 
-        for (const course of this.courses) {
-            const courseItem = document.createElement('li');
-            courseItem.textContent = `${course.title}: ${course.score} (Students score: ${course.studentsScore})`;
-            coursesList.appendChild(courseItem);
-        }
+        this.courses?.forEach(course => {
+            let mark = course.score;
 
-        return coursesList;
+            htmlString += `
+                <div class="user__courses--course ${this.role}">
+                    <p>Title: <b>${course.title}</b></p>
+                    <p>Lector's score: <span class="${this.getGrade(mark)}">${this.getGrade(mark)}</span></p>
+                    <p>Average student's score: <span class="${course.studentsScore}">${course.studentsScore}</span></p>
+                </div>`;
+        });
+
+        htmlString += `</div>`;
+        return htmlString;
     }
 }
 
 class Admin extends User {
     constructor(name, age, img, role, courses) {
-        super(name, age, img, role);
-        this.courses = courses;
+        super(name, age, img, role, courses);
     }
 
-    renderCourses() {
-        const coursesList = document.createElement('ul');
-        coursesList.classList.add('courses');
+    renderCourses(){
+        let htmlString = `<div class="user__courses admin--info">`;
 
-        for (const course of this.courses) {
-            const courseItem = document.createElement('li');
-            courseItem.textContent = `${course.title}: ${course.score} (Lector: ${course.lector})`;
-            coursesList.appendChild(courseItem);
-        }
+        this.courses?.forEach(course => {
+            let mark = course.score;
 
-        return coursesList;
-    }
-}
+            htmlString += `
+			<div class="user__courses--course ${this.role}">
+				<p>Title: <b>${course.title}</b></p>
+				<p>Admin's score: <span class="${this.getGrade(mark)}">${this.getGrade(mark)}</span></p>
+			    <p>Lector: <b>${course.lector}</b></p>
+			</div>`;
+        });
 
-function renderUsers() {
-    const usersContainer = document.getElementById('users');
-
-    for (const user of users) {
-        let userBlock;
-
-        if (user.role === 'student') {
-            userBlock = new Student(user.name, user.age, user.img, user.role, user.courses);
-        } else if (user.role === 'lector') {
-            userBlock = new Lector(user.name, user.age, user.img, user.role, user.courses);
-        } else if (user.role === 'admin') {
-            userBlock = new Admin(user.name, user.age, user.img, user.role, user.courses);
-        }
-
-        usersContainer.appendChild(userBlock.render());
+        htmlString += `</div>`;
+        return htmlString;
     }
 }
 
-renderUsers();
+let students = users.filter(user => {
+    if (user.role === 'student') {
+        return user;
+    }
+});
+
+students = students.map(user =>  new Student(user.name, user.age, user.img, user.role, user.courses));
+
+students.forEach(user => {
+    user.render();
+});
+
+let admins = users.filter(user => {
+    if (user.role === 'admin') {
+        return user;
+    }
+});
+
+admins = admins.map(user =>  new Admin(user.name, user.age, user.img, user.role, user.courses));
+
+admins.forEach(user => {
+    user.render();
+});
+
+let lectors = users.filter(user => {
+    if (user.role === 'lector') {
+        return user;
+    }
+});
+
+lectors = lectors.map(user =>  new Lector(user.name, user.age, user.img, user.role, user.courses));
+
+lectors.forEach(user => {
+    user.render();
+});

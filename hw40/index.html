@@ -8,6 +8,22 @@
     <title>Homework40</title>
 </head>
 <body>
+<div class="categories">
+    <ul>
+        <li onclick="showProducts('category1')">Категорія 1</li>
+        <li onclick="showProducts('category2')">Категорія 2</li>
+        <li onclick="showProducts('category3')">Категорія 3</li>
+    </ul>
+</div>
+
+<div class="products">
+    <ul id="productList"></ul>
+</div>
+
+<div class="product-info" id="productInfo">
+    <h3>Інформація про товар</h3>
+    <button onclick="buyProduct()">Купити</button>
+</div>
 <script src="script.js"></script>
 
 </body>

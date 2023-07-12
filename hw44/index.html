@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework1</title>
+</head>
+<body>
+<form id="registration-form">
+    <label for="first-name">Ім'я:</label>
+    <input type="text" id="first-name" required>
+
+    <label for="last-name">Прізвище:</label>
+    <input type="text" id="last-name" required>
+
+    <label for="birth-date">Дата народження:</label>
+    <input type="text" id="birth-date" required>
+
+    <label for="gender">Стать:</label>
+    <input type="radio" name="gender" value="male" required> Чоловіча
+    <input type="radio" name="gender" value="female" required> Жіноча
+
+    <label for="city">Місто:</label>
+    <select id="city" required>
+        <option value="">Оберіть місто</option>
+        <option value="kyiv">Київ</option>
+        <option value="lviv">Львів</option>
+        <option value="kharkiv">Харків</option>
+    </select>
+
+    <label for="address">Адреса:</label>
+    <textarea id="address" required></textarea>
+
+    <label for="languages">Мови, якими володіє:</label>
+    <input type="checkbox" id="language1" value="ukrainian"> Українська
+    <input type="checkbox" id="language2" value="english"> Англійська
+    <input type="checkbox" id="language3" value="russian"> Російська
+
+    <button type="button" onclick="saveData()">Зберегти</button>
+</form>
+
+<table id="data-table">
+    <thead>
+    <tr>
+        <th>Ім'я</th>
+        <th>Прізвище</th>
+        <th>Дата народження</th>
+        <th>Стать</th>
+        <th>Місто</th>
+        <th>Адреса</th>
+        <th>Мови</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<script src="script.js"></script>
+
+</body>
+</html>
